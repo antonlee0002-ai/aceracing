@@ -1,0 +1,188 @@
+[gd_scene load_steps=20 format=3 uid="uid://whqog1l4mfax"]
+
+[ext_resource type="Texture2D" uid="uid://bjenrlelidg4j" path="res://New Piskel.png" id="1_0e48y"]
+[ext_resource type="Texture2D" uid="uid://c4576peyr20q1" path="res://Background Iguess.png" id="1_d21ai"]
+[ext_resource type="Script" uid="uid://dvc28njdyn2bu" path="res://trafficlight.gd" id="2_epypp"]
+[ext_resource type="Script" uid="uid://bmc1m2pnig25w" path="res://label.gd" id="5_q6r6c"]
+[ext_resource type="Texture2D" uid="uid://kga30xdcufbr" path="res://image (1).png" id="6_kdubu"]
+[ext_resource type="Texture2D" uid="uid://b4x1c37b0wpf" path="res://New Piskel (3).png" id="7_4d7sh"]
+[ext_resource type="Script" uid="uid://dqlhbc7eab3aa" path="res://car.gd" id="7_d21ai"]
+[ext_resource type="Texture2D" uid="uid://cl4owox35gagv" path="res://New Piskel (2).png" id="8_4d7sh"]
+[ext_resource type="Script" uid="uid://cauq3b51fmyu5" path="res://sprite_2d.gd" id="9_ir8iy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0hol4"]
+atlas = ExtResource("1_0e48y")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6r6c"]
+atlas = ExtResource("1_0e48y")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kdubu"]
+atlas = ExtResource("1_0e48y")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d21ai"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0hol4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q6r6c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kdubu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kdubu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q6r6c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0hol4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0e48y"]
+bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_epypp"]
+bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0hol4"]
+bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rj586"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ir8iy"]
+atlas = ExtResource("8_4d7sh")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hqns4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_4d7sh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ir8iy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D"]
+texture_filter = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+offset_left = -593.0
+offset_top = -346.0
+offset_right = 610.0
+offset_bottom = 400.0
+texture = ExtResource("1_d21ai")
+
+[node name="Trafficlight" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-223, -263)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_d21ai")
+frame_progress = 0.8335905
+script = ExtResource("2_epypp")
+
+[node name="Trafficlight2" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(303, -264)
+scale = Vector2(4.9999995, 4.9999995)
+sprite_frames = SubResource("SpriteFrames_d21ai")
+frame_progress = 0.8335905
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Button" type="Button" parent="."]
+offset_left = -792.0
+offset_top = -496.0
+offset_right = 1137.0
+offset_bottom = 583.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_0e48y")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_epypp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0hol4")
+action_mode = 0
+button_mask = 7
+
+[node name="NoRightTurn" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(357, -208)
+scale = Vector2(3, 3)
+texture = SubResource("CompressedTexture2D_rj586")
+
+[node name="NoRightTurn2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-286, -208)
+scale = Vector2(3, 3)
+texture = SubResource("CompressedTexture2D_rj586")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = -159.0
+offset_top = -333.0
+offset_right = 6.0
+offset_bottom = -301.0
+scale = Vector2(2, 2)
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 6.4999995
+offset_top = 5.0
+offset_right = 161.5
+offset_bottom = 28.0
+scale = Vector2(1.005, 1.005)
+text = "0 ms"
+horizontal_alignment = 1
+script = ExtResource("5_q6r6c")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+
+[node name="Car" type="Sprite2D" parent="."]
+position = Vector2(25.999998, 193)
+scale = Vector2(9.5, 7.733333)
+texture = ExtResource("6_kdubu")
+script = ExtResource("7_d21ai")
+
+[node name="Timer" type="Timer" parent="Car"]
+wait_time = 0.009999999999999998
+autostart = true
+
+[node name="Sign" type="AnimatedSprite2D" parent="."]
+position = Vector2(-7, -14)
+scale = Vector2(25, 25)
+sprite_frames = SubResource("SpriteFrames_hqns4")
+script = ExtResource("9_ir8iy")
+
+[node name="Button2" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -537.0
+offset_top = -306.0
+offset_right = -346.0
+offset_bottom = -229.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+action_mode = 0
+button_mask = 7
+text = "Restart"
+
+[connection signal="go" from="Trafficlight" to="Car" method="_on_trafficlight_go"]
+[connection signal="pressed" from="Button" to="Trafficlight" method="_on_button_pressed"]
+[connection signal="timeout" from="Car/Timer" to="Car" method="_on_timer_timeout"]
+[connection signal="pressed" from="Button2" to="Car" method="_on_button_2_pressed"]
+[connection signal="pressed" from="Button2" to="Button2" method="_on_pressed"]
